@@ -1,6 +1,6 @@
 # Git이란 무엇일까요?
 
-Git은 **버전 관리 시스템(Version Control System)**입니다. 코드나 파일의 변경 이력을 모두 기록
+Git은 **버전 관리 시스템(Version Control System)**입니다. 코드나 파일의 변경 이력을 모두 기
 
 ## 실생활 비유
 
