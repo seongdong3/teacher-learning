@@ -30,3 +30,11 @@
 
 ## 현재 파일 상태를 출력하는 명령어
 - `git status`
+
+# .gitignore
+
+## 어떤 파일인가? 역할이 무엇인가?
+
+## .gitignore의 주의사항은 무엇인가?
+
+## gitignore.io 는 어떤 서비스인가?
