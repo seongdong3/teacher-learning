@@ -48,6 +48,7 @@
   background-color: lightyellow;
 }
 
+/* 상속과 비상속 */
 .parent-div {
   color: aqua;
   font-size: 10rem;
