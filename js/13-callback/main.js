@@ -172,3 +172,18 @@ numbers11.sort((a, b) => {
   }
 });
 console.log(numbers11); // [ 1, 2, 6, 7, 9 ]
+
+
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
+console.log("코드를 실행")
