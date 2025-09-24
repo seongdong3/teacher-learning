@@ -2,18 +2,18 @@
 // new Promise() : 생성자 함수
 // (resolve, reject) => {} : 비동기 작업을 수행하고, 결과를 반환하는 함수
 
-const randomPromise = new Promise((resolve, reject) => {
-  // 비동기 작업 흉내
-  setTimeout(() => {
-    const random = Math.random(); // 랜덤 숫자 생성
+// const randomPromise = new Promise((resolve, reject) => {
+//   // 비동기 작업 흉내
+//   setTimeout(() => {
+//     const random = Math.random(); // 랜덤 숫자 생성
 
-    if (random > 0.5) {
-      resolve("숫자가 0.5 이상! 성공"); // 성공 시  반환
-    } else {
-      reject("숫자가 0.5 이하! 실패"); // 실패 시  반환
-    }
-  }, 2000);
-});
+//     if (random > 0.5) {
+//       resolve("숫자가 0.5 이상! 성공"); // 성공 시  반환
+//     } else {
+//       reject("숫자가 0.5 이하! 실패"); // 실패 시  반환
+//     }
+//   }, 2000);
+// });
 
 // Promise 두 가지 상태
 // 비동기 처리의 성공과 실패
@@ -43,51 +43,48 @@ const randomPromise = new Promise((resolve, reject) => {
 // 함수앞에 붙는 키워드.
 // 해당 함수가 비동기를 처리하는 함수란것을 표시
 
-function randomPromiseFunction() {
-  return new Promise((resolve, reject) => {
-    // 비동기 작업 흉내
+function randomPromiseFunction(second) {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      const random = Math.random(); // 랜덤 숫자 생성
-
-      if (random > 0) {
-        resolve("숫자가 0.5 이상! 성공"); // 성공 시  반환
-      } else {
-        reject("숫자가 0.5 이하! 실패"); // 실패 시  반환
-      }
-    }, 2000);
+      resolve(`${second}초 후 성공`); // 성공 시  반환
+    }, 1000 * second);
   });
 }
 
 async function func() {
   try {
-    // 비동기처리를 수행하는 코드 블록
+    console.time("순차");
 
-    // await 키워드
-    // Promise 기반 비동기처리 수행
-    // 수행 결과 resolve() 함수 인자를 반환
-
-    const result1 = await randomPromiseFunction(); // 1초
-    const result2 = await randomPromiseFunction(); // 1초
-    const result3 = await randomPromiseFunction(); // 1초
-
+    const result1 = await randomPromiseFunction(1); // 1초
     console.log(result1);
+
+    const result2 = await randomPromiseFunction(5); // 1 + 2초
     console.log(result2);
+
+    const result3 = await randomPromiseFunction(1); // 1 + 2 + 1초
     console.log(result3);
+
+    console.timeEnd("순차");
   } catch (error) {
-    // 비동기처리가 실패했을 때
     console.log(error);
   }
 }
 
-func();
-
-// setTimeout(() => {
-//   console.log(1);
-// }, 1000);
-// setTimeout(() => {
-//   console.log(2);
-// }, 1000);
-// setTimeout(() => {
-//   console.log(3);
-// }, 1000);
-
+async function parallelFunc() {
+  try {
+    console.time("병렬");
+    const [result1, result2, result3] = await Promise.all([
+      randomPromiseFunction(1),
+      randomPromiseFunction(5),
+      randomPromiseFunction(1),
+    ]);
+    console.log(result1);
+    console.log(result2);
+    console.log(result3);
+    console.timeEnd("병렬");
+  } catch (error) {
+    console.log(error);
+  }
+}
+// func();
+parallelFunc();
