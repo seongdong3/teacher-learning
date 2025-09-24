@@ -9,6 +9,7 @@
     <title>Document</title>
   </head>
   <body>
+    <button>API 요청</button>
     <div id="parent"></div>
 
     <script>
@@ -53,7 +54,18 @@
           parentTag.append(pTag);
         });
       }
-      getProducts();
+
+      // 태그명이 button인 요소의 click 이벤트가 발생했을 때
+      // 함수 getProducts 가 호출 코드 작성
+
+      // 1. 태그명이 button인 요소를 선택(querySelector)
+      // 2. 요소를 변수에 할당(저장)
+      // 3. addEventListener() 메서드로 요소에 click 이벤트에 대한 핸들러 등록
+      const buttonTag = document.querySelector("button");
+      
+      buttonTag.addEventListener("click", () => {
+        getProducts();
+      });
 
       // 통신 연결 테스트 함수
       async function testConnect() {
