@@ -1,15 +1,18 @@
 import React from "react";
-import Rule from "./components/JSX/Rule";
-import Interpolation from "./components/JSX/Interpolation";
-import Header from "./components/Header";
 
-// App 컴포넌트는 Header 컴포넌트와 Interpolation 컴포넌트를 포함한다
-// App 컴포넌트는 Header 컴포넌트와 Interpolation 컴포넌트가 중첩됐다
+// 컴포넌트 함수 외부는 import 문을 제외하고는 작성하지 않는다
+
+// ----------------------------------------
+
+// 파일명과 동일한 함수는 컴포넌트 함수
+// 컴포넌트 함수 : 태그(HTML 문서)를 생성하는 함수
+// 컴포넌트 함수는 파일 당 하나만 존재
 export default function App() {
-  return (
-    <div>
-      <Header></Header>
-      <Interpolation></Interpolation>
-    </div>
-  );
+  // 영역 1. 내부 기능 로직을 작성하는 영역
+  // 이벤트 핸들러 함수를 정의
+  // 이벤트 핸들러 함수 : 이벤트가 발생할 때 실행될 기능
+
+  // ----------------------------------------
+  // 영역 2. 태그(HTML 문서)를 생성(return)하는 영역
+  return <div>App</div>;
 }
