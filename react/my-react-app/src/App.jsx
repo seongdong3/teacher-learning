@@ -1,13 +1,12 @@
 import React from "react";
-import Parent from "./components/Props/Parent";
-import CardContainer from "./components/PropsFunction/CardContainer";
-// 1. Parent 컴포넌트 불러오기
-// 2. Parent 컴포넌트를 App 컴포넌트 내부에 배치
-// 3. 다른 컴포넌트는 모두 삭제
+// PropsChildren 폴더의 Parent 컴포넌트 불러오기
+import Parent from "./components/PropsChildren/Parent";
+
 export default function App() {
   return (
     <div>
-      <CardContainer></CardContainer>
+      {/* Parent 컴포넌트를 배치 */}
+      <Parent></Parent>
     </div>
   );
 }
