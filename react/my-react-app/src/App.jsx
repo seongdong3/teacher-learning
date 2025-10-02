@@ -1,8 +1,9 @@
-import MovieDetail from "./components/TMDB/MovieDetail";
+import React from "react";
+import MovieList from "./components/TMDB/MovieList";
 export default function App() {
   return (
     <div>
-      <MovieDetail />
+      <MovieList></MovieList>
     </div>
   );
 }
