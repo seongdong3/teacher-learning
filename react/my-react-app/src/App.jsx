@@ -1,9 +1,8 @@
-import Container from "./components/StateAdvanced/Container";
-
+import Container from "./components/PostLimitSkip/Container";
 export default function App() {
   return (
     <div>
-      <Container></Container>
+      <Container />
     </div>
   );
 }
