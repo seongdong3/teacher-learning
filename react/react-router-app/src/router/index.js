@@ -7,6 +7,7 @@ import { createBrowserRouter } from "react-router-dom";
 // 레이아웃 컴포넌트 불러오기
 import RootLayout from "../layout/RootLayout";
 import AuthLayout from "../layout/AuthLayout.jsx";
+import DummyLayout from "../layout/DummyLayout.jsx";
 import ProtectedLayout from "../layout/ProtectedLayout.jsx";
 
 // 페이지 컴포넌트 불러오기
@@ -17,6 +18,11 @@ import Profile from "../pages/RootPages/Profile.jsx";
 import AuthHome from "../pages/AuthPages/AuthHome.jsx";
 import Signup from "../pages/AuthPages/Signup.jsx";
 import Login from "../pages/AUthPages/Login.jsx";
+
+import Carts from "../pages/DummyPages/Carts.jsx";
+import Posts from "../pages/DummyPages/Posts.jsx";
+import Products from "../pages/DummyPages/Products.jsx";
+import DummyHome from "../pages/DummyPages/DummyHome.jsx";
 
 // 라우터 설정 생성
 const router = createBrowserRouter([
@@ -65,6 +71,31 @@ const router = createBrowserRouter([
       {
         path: "signup",
         Component: Signup,
+      },
+    ],
+  },
+  // AuthLayout 경로 설정
+  {
+    path: "/dummy",
+    Component: DummyLayout,
+    children: [
+      {
+        index: true,
+        Component: DummyHome,
+      },
+      {
+        path: "carts",
+        Component: Carts,
+      },
+      // 로그인 경로(path)와 Component 설정
+      {
+        path: "posts",
+        Component: Posts,
+      },
+      // 회원가입 경로(path)와 Component 설정
+      {
+        path: "products",
+        Component: Products,
       },
     ],
   },
