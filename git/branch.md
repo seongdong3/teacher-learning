@@ -47,7 +47,7 @@
 6. `git push origin [현재 브랜치명]`
 7. GitHub 저장소 접속
 8. GitHub 병합 처리
-   1. 상당 Pull requests 클릭
+   1. 상단 `Pull requests` 클릭
    2. `New pull request` 클릭
    3. compare를 병합할 브랜치로 변경
    4. `Create pull request` 클릭
