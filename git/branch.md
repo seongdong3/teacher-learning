@@ -44,3 +44,17 @@
 3. 작업
 4. `git add . `
 5. `git commit -m "커밋 메세지`
+6. `git push origin [현재 브랜치명]`
+7. GitHub 저장소 접속
+8. GitHub 병합 처리
+   1. 상당 Pull requests 클릭
+   2. `New pull request` 클릭
+   3. compare를 병합할 브랜치로 변경
+   4. `Create pull request` 클릭
+   5. 제목(title)과 설명(description) 작성
+   6. `Create pull request` 클릭
+   7. 코드 검토(리뷰)
+   8. 3개의 병합 방법 중 하나를 선택해서 병합 처리
+   9. 브랜치 삭제
+9. (로컬) git switch main
+10. (로컬) git pull origin main
