@@ -14,6 +14,8 @@ import ProtectedLayout from "../layout/ProtectedLayout.jsx";
 import Home from "../pages/RootPages/Home.jsx";
 import About from "../pages/RootPages/About.jsx";
 import Profile from "../pages/RootPages/Profile.jsx";
+import PostList from "../pages/RootPages/PostList.jsx";
+import PostDetail from "../pages/RootPages/PostDetail.jsx";
 
 import AuthHome from "../pages/AuthPages/AuthHome.jsx";
 import Signup from "../pages/AuthPages/Signup.jsx";
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
       {
         path: "about",
         Component: About,
+      },
+      {
+        path: "posts",
+        Component: PostList,
+      },
+      {
+        path: "posts/:postId",
+        Component: PostDetail,
       },
       {
         // path 속성 X
@@ -74,7 +84,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // AuthLayout 경로 설정
   {
     path: "/dummy",
     Component: DummyLayout,
