@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import PATHS from "../../constants/paths";
+
 // useSearchParams 훅 불러오기
 // useSearchParams 훅 : 쿼리 파라미터 관리
 import { useSearchParams } from "react-router-dom";
@@ -65,7 +67,20 @@ export default function PostList() {
       {posts.map((post) => {
         return (
           <div key={post.id}>
-            <Link to={`/posts/${post.id}`}>
+            {/* 아래 to 속성의 값은 항상 */}
+            {/*  "/posts/:postId" */}
+            {/* 실제 값은 */}
+            {/* `/posts/${post.id}` */}
+            {/*
+            <Link to={PATHS.ROOT.POST_DETAIL}>
+              No. {post.id} - {post.title}
+            </Link>
+            */}
+
+            {/* post.id = 1, /posts/1 */}
+            {/* post.id = 2, /posts/2 */}
+            {/* post.id = 3, /posts/3 */}
+            <Link to={PATHS.ROOT.getPostDetail(post.id)}>
               No. {post.id} - {post.title}
             </Link>
             <br />
