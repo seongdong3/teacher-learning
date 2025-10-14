@@ -21,9 +21,11 @@ import AuthHome from "../pages/AuthPages/AuthHome.jsx";
 import Signup from "../pages/AuthPages/Signup.jsx";
 import Login from "../pages/AUthPages/Login.jsx";
 
+// DummyJSON 실습 페이지 컴포넌트
 import Carts from "../pages/DummyPages/Carts.jsx";
 import Posts from "../pages/DummyPages/Posts.jsx";
 import Products from "../pages/DummyPages/Products.jsx";
+import ProductDetail from "../pages/DummyPages/ProductDetail.jsx";
 import DummyHome from "../pages/DummyPages/DummyHome.jsx";
 
 // 라우터 설정 생성
@@ -96,15 +98,17 @@ const router = createBrowserRouter([
         path: "carts",
         Component: Carts,
       },
-      // 로그인 경로(path)와 Component 설정
       {
         path: "posts",
         Component: Posts,
       },
-      // 회원가입 경로(path)와 Component 설정
       {
         path: "products",
         Component: Products,
+      },
+      {
+        path: "products/:productId",
+        Component: ProductDetail,
       },
     ],
   },
