@@ -28,10 +28,14 @@ import Products from "../pages/DummyPages/Products.jsx";
 import ProductDetail from "../pages/DummyPages/ProductDetail.jsx";
 import DummyHome from "../pages/DummyPages/DummyHome.jsx";
 
+// 경로 상수 불러오기
+import PATHS from "../constants/paths.js";
+
 // 라우터 설정 생성
 const router = createBrowserRouter([
   {
-    path: "/",
+    // PATHS.ROOT.INDEX
+    path: PATHS["ROOT"]["INDEX"],
     Component: RootLayout,
     children: [
       // 중첩할 자식 경로 객체를 정의하는 배열
@@ -41,15 +45,15 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "about",
+        path: PATHS.ROOT.ABOUT,
         Component: About,
       },
       {
-        path: "posts",
+        path: PATHS.ROOT.POSTS,
         Component: PostList,
       },
       {
-        path: "posts/:postId",
+        path: PATHS.ROOT.POST_DETAIL,
         Component: PostDetail,
       },
       {
@@ -58,7 +62,7 @@ const router = createBrowserRouter([
         // 보호할 경로와 컴포넌트 정의
         children: [
           {
-            path: "profile",
+            path: PATHS.ROOT.PROFILE,
             Component: Profile,
           },
         ],
@@ -67,7 +71,7 @@ const router = createBrowserRouter([
   },
   // AuthLayout 경로 설정
   {
-    path: "/auth",
+    path: PATHS.AUTH.INDEX,
     Component: AuthLayout,
     children: [
       {
@@ -76,12 +80,12 @@ const router = createBrowserRouter([
       },
       // 로그인 경로(path)와 Component 설정
       {
-        path: "login",
+        path: PATHS.AUTH.LOGIN,
         Component: Login,
       },
       // 회원가입 경로(path)와 Component 설정
       {
-        path: "signup",
+        path: PATHS.AUTH.SIGNUP,
         Component: Signup,
       },
     ],
@@ -107,7 +111,10 @@ const router = createBrowserRouter([
         Component: Products,
       },
       {
-        path: "products/:productId",
+        // 부모 경로 : /dummy (절대 경로 표현)
+        // 자식 경로 : products/:productId (상대 경로 표현)
+        // 완성 경로 : /dummy/products/:productId
+        path: "product/:productId",
         Component: ProductDetail,
       },
     ],
