@@ -1,3 +1,6 @@
+# .env 파일은 github에 올라가지 않는다
+.env
+
 # Logs
 logs
 *.log
