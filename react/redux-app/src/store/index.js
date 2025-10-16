@@ -1,16 +1,39 @@
-// configureStore 함수
-// 리듀서를 받아서 스토어를 생성하는 함수
 import { configureStore } from "@reduxjs/toolkit";
-// 리듀서 불러오기
 import counterReducer from "./counterSlice";
-
-// 인증 리듀서 불러오기
 import authReducer from "./authSlice";
 
-// 스토어 생성
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+import {
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+
+const authPersistConfig = {
+  key: "auth",
+  storage: storage,
+  whitelist: ["token"],
+};
+
+const persistAuthReducer = persistReducer(authPersistConfig, authReducer);
+
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    auth: authReducer,
+    auth: persistAuthReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
+
+// Persist 스토어 생성 및 내보내기
+export const persistor = persistStore(store);

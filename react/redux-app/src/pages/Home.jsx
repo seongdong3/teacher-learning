@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 export default function Home() {
   return (
-    <div>
-      <Link to="/signup">회원가입 페이지</Link>
-      <Link to="/login">로그인 페이지</Link>
+    <div className="text-center p-10">
+      <h1 className="text-5xl font-bold text-gray-800">홈페이지</h1>
+      <p className="text-lg text-gray-600 mt-4">리덕스 앱에 오신 것을 환영합니다.</p>
     </div>
   );
 }
